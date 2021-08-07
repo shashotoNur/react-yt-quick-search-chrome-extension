@@ -7,7 +7,7 @@ export const About = () =>
         return (
             <>
                 <header className="App-header">
-                    <p>About</p>
+                    <h2>About</h2>
                     <p>
                         A chrome extension to search YouTube videos quickly without waiting for youtube homepage to load
                     </p>

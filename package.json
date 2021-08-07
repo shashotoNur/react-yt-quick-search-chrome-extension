@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
-    "@testing-library/react": "^11.2.7",
-    "@types/jest": "^26.0.24",
     "@types/node": "^12.20.17",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
@@ -19,7 +17,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env INLINE_RUNTIME_CHUNK=false craco build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

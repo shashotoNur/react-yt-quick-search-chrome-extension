@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 export const Home = () =>
     {
         const [url, setUrl] = useState<string>('');
+        const [visibilityStatus, setVisibilityStatus] = useState<string>("Show search url");
         const [showURL, setShowURL] = useState<boolean>(false);
 
         let { push } = useHistory();
@@ -18,19 +19,18 @@ export const Home = () =>
             };
         
         const toggleURLVisibility = () =>
-        {
-            const inputRef = document.getElementById('inputRef');
-            if(!showURL)
             {
-                setShowURL(true);
-                if(inputRef) inputRef.innerHTML = "Hide search url";
-            }
-            else if(showURL)
-            {
-                setShowURL(false);
-                if(inputRef) inputRef.innerHTML = "Show search url";
-            }
-        }
+                if(!showURL)
+                {
+                    setShowURL(true);
+                    setVisibilityStatus("Hide search url");
+                }
+                else if(showURL)
+                {
+                    setShowURL(false);
+                    setVisibilityStatus("Show search url");
+                };
+            };
         
         const queryText = (event: React.FormEvent<HTMLFormElement> | undefined) =>
             {
@@ -44,17 +44,18 @@ export const Home = () =>
         return (
             <>
                 <header className="App-header">
-                    <p>YouTube Quick Search</p>
+                    <h2>YouTube Quick Search</h2>
 
+                    <input type="button" value="Go to Library"
+                    onClick={ () => { window.open('https://www.youtube.com/feed/library', '_blank', 'noopener,noreferrer') } }/>
                     <form onSubmit={ queryText }>
-                        <input type="text" onChange={ onInputChange }/>
+                        <input type="text" id='text-iput' onChange={ onInputChange }/>
                         <input type="submit" value="Search" />
                     </form>
-
-                    <input type="button" id="inputRef" onClick={ toggleURLVisibility } value="Show search url" />
+                    <input type="button" onClick={ toggleURLVisibility } value={ visibilityStatus } />
                     <p>{ showURL && url }</p>
 
-                    <button onClick={() => { push('/about') }}>About page </button>
+                    <button id='about' onClick={() => { push('/about') }}> About page </button>
                 </header>
             </>
         )
