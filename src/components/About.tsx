@@ -8,10 +8,12 @@ export const About = () =>
             <>
                 <header className="App-header">
                     <h2>About</h2>
+                    <br /><br />
                     <p>
-                        A chrome extension to search YouTube videos quickly without waiting for youtube homepage to load
+                        A chrome extension to search YouTube videos quickly without going to youtube homepage first.
                     </p>
 
+                    <br /><br /><br /><br />
                     <button onClick={() => { push('/') }}> Home page </button>
                 </header>
             </>

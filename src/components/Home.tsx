@@ -53,8 +53,9 @@ export const Home = () =>
                         <input type="submit" value="Search" />
                     </form>
                     <input type="button" onClick={ toggleURLVisibility } value={ visibilityStatus } />
-                    <p>{ showURL && url }</p>
+                    <p>{ showURL && `${ url.substring(0, 67) }${ (url.length > 67) ? '...' : '' }` }</p>
 
+                    <br />
                     <button id='about' onClick={() => { push('/about') }}> About page </button>
                 </header>
             </>
